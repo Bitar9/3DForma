@@ -1,0 +1,78 @@
+/* ========================================
+   FORM3D - ATMOSPHERIC DESIGN SYSTEM
+   "Dopamine, not minimalism"
+   ======================================== */
+
+:root {
+  /* --- Deep Base Palette --- */
+  --bg-deep: #080808;
+  --bg-surface: #121212;
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1A6;
+  --text-dim: #6E6E73;
+
+  /* --- Scene Themes --- */
+
+  /* Genesis (Hero) */
+  --genesis-accent: #E2E2E2;
+  --genesis-glow: rgba(255, 255, 255, 0.05);
+
+  /* Intimacy (Romantic Sculpture) */
+  --intimacy-bg: #1A1614;
+  --intimacy-accent: #D4B5A8;
+  --intimacy-glow: rgba(212, 181, 168, 0.15);
+  --intimacy-text: #E8C4B8;
+
+  /* Identity (Car Key Tag) */
+  --identity-bg: #0D1117;
+  --identity-accent: #38BDF8;
+  --identity-glow: rgba(56, 189, 248, 0.2);
+  --identity-text: #BAE6FD;
+
+  /* --- Typography --- */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", -apple-system, sans-serif;
+
+  /* --- Spacing --- */
+  --gutter: 2rem;
+  --moment-gap: 10vh;
+
+  /* --- Motion --- */
+  --ease-sensual: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-slow: 1.2s;
+  --duration-base: 0.8s;
+
+  /* --- Effects --- */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="intimacy"] {
+  --current-bg: var(--intimacy-bg);
+  --current-accent: var(--intimacy-accent);
+  --current-text: var(--intimacy-text);
+}
+
+[data-theme="identity"] {
+  --current-bg: var(--identity-bg);
+  --current-accent: var(--identity-accent);
+  --current-text: var(--identity-text);
+}
+
+/* --- Layout Adjustments --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base Styles moved to CSS/BASE.CSS for better management */

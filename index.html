@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description"
+    content="A sensory 3D printing experience. Custom objects, crafted with emotion and local care.">
+  <meta name="theme-color" content="#080808">
+
+  <title>3D Forma | The Experience</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+
+<body class="is-loading">
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo" data-i18n="nav.logo">3D Forma</a>
+
+    <nav class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="sv">SV</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Scene 0: Genesis -->
+    <section class="scene scene-genesis" id="genesis">
+      <div class="scene-inner">
+        <h1 class="moment-title" data-i18n="experience.genesis.title">Crafting the intangible</h1>
+        <p class="moment-subtitle" data-i18n="experience.genesis.subtitle">3D printing is the bridge between imagination
+          and the objects you hold.</p>
+
+        <div class="moment-visual">
+          <img src="images/introo.png" alt="The act of creation">
+          <div class="visual-overlay"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator" data-i18n="experience.scroll">Scroll to feel</div>
+    </section>
+
+    <!-- Scene 1: Intimacy -->
+    <section class="scene scene-intimacy" id="intimacy" data-scene-theme="intimacy">
+      <div class="scene-inner">
+        <h2 class="moment-title" data-i18n="experience.intimacy.title">Connection, captured</h2>
+        <p class="moment-subtitle" data-i18n="experience.intimacy.subtitle">A quiet celebration of love, frozen in time
+          and local craftsmanship.</p>
+
+        <a href="product/couple-sculpture.html" class="moment-link">
+          <div class="moment-visual">
+            <img src="images/Par3.png" alt="Romantic Sculpture">
+            <div class="visual-overlay"></div>
+          </div>
+        </a>
+
+        <div style="margin-top: 3rem;">
+          <a href="product/couple-sculpture.html" class="btn-experience" data-i18n="product.couple.cta">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 2: Identity -->
+    <section class="scene scene-identity" id="identity" data-scene-theme="identity">
+      <div class="scene-inner text-right" style="align-items: flex-end; display: flex; flex-direction: column;">
+        <h2 class="moment-title" data-i18n="experience.identity.title">Boldly yours</h2>
+        <p class="moment-subtitle" data-i18n="experience.identity.subtitle">Precise. Persistent. A statement of identity
+          carried with you always.</p>
+
+        <a href="product/car-key-tag.html" class="moment-link">
+          <div class="moment-visual">
+            <img src="images/il_794xN.7712319889_j4v6.webp" alt="Custom Key Tag">
+            <div class="visual-overlay"></div>
+          </div>
+        </a>
+
+        <div style="margin-top: 3rem;">
+          <a href="product/car-key-tag.html" class="btn-experience" data-i18n="product.keytag.cta">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 3: Connection (Footer) -->
+    <section class="scene scene-footer" id="contact" style="min-height: 50vh; justify-content: flex-start;">
+      <div class="scene-inner">
+        <h2 class="moment-title" data-i18n="home.trust.title" style="font-size: 2.5rem;">Why Choose Us</h2>
+        <p class="moment-subtitle" style="max-width: 60ch;">
+          <span data-i18n="home.trust.local.title">Local Production</span>.
+          <span data-i18n="home.trust.custom.title">Fully Customizable</span>.
+          <span data-i18n="home.trust.quality.title">Quality Materials</span>.
+        </p>
+
+        <div style="margin-top: 4rem;">
+          <p class="moment-subtitle" data-i18n="order.contact">Questions? Contact us at</p>
+          <a href="mailto:hello@form3d.local" class="logo" style="font-size: 2rem;">hello@form3d.local</a>
+        </div>
+
+        <div style="margin-top: 8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+          <p class="moment-subtitle" style="font-size: 0.8rem;" data-i18n="footer.copyright">© 2025 Form3D. All rights
+            reserved.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/content.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
