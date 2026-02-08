@@ -24,12 +24,12 @@ const FORM3D_CONTENT = {
         name: "Couple Sculpture",
         price: "299 SEK",
         tallyLink: "https://tally.so/r/rjPzVM",
-        heroImage: "/images/CoupleSculpture/PAR2.png",
+        heroImage: "/CoupleSculpture/PAR2.png",
         gallery: [
-            "/images/CoupleSculpture/PAR1.png",
-            "/images/CoupleSculpture/PAR2.png",
-            "/images/CoupleSculpture/Par3.png",
-            "/images/CoupleSculpture/il_794xN.7710992691_av7o.avif"
+            "/CoupleSculpture/PAR1.png",
+            "/CoupleSculpture/PAR2.png",
+            "/CoupleSculpture/Par3.png",
+            "/CoupleSculpture/il_794xN.7710992691_av7o.avif"
         ]
     },
 
@@ -39,11 +39,11 @@ const FORM3D_CONTENT = {
         name: "Couple Holding Heart",
         price: "299 SEK",
         tallyLink: "https://tally.so/r/rjPzVM",
-        heroImage: "/images/CoupleHoldingHands/chhwarm.png",
+        heroImage: "/CoupleHoldingHands/chhwarm.png",
         gallery: [
-            "/images/CoupleHoldingHands/chhblank.png",
-            "/images/CoupleHoldingHands/chh.png",
-            "/images/CoupleHoldingHands/chhwarm.png"
+            "/CoupleHoldingHands/chhblank.png",
+            "/CoupleHoldingHands/chh.png",
+            "/CoupleHoldingHands/chhwarm.png"
         ]
     },
 
@@ -53,11 +53,11 @@ const FORM3D_CONTENT = {
         name: "Custom Key Tag",
         price: "49 SEK",
         tallyLink: "https://tally.so/r/xXYOAG",
-        heroImage: "images/keytag/NameplateCar.png",
+        heroImage: "keytag/NameplateCar.png",
         gallery: [
-            "images/Keytag/NameplateCar.png",
-            "images/Keytag/NamePlatecars.png",
-            "images/Keytag/il_794xN.7712319889_j4v6.webp"
+            "Keytag/NameplateCar.png",
+            "Keytag/NamePlatecars.png",
+            "Keytag/il_794xN.7712319889_j4v6.webp"
         ]
     },
     Figure3d: {
@@ -65,24 +65,24 @@ const FORM3D_CONTENT = {
         name: "Figure3d",
         price: "49 SEK",
         tallyLink: "https://tally.so/r/xXYOAG",
-        heroImage: "images/3dFigure1/figure3.png",
+        heroImage: "3dFigure1/figure3.png",
         gallery: [
        
-    "images/3dFigure1/Figure7.png",
-    "images/3dFigure1/Figure6.png",
-    "images/3dFigure1/Figure5.png",
-    "images/3dFigure1/exampleRyan.png",
-    "images/3dFigure1/c85d6002-ee6b-4268-aacc-c35b0adc5053_1770472200.png",
-    "images/3dFigure1/Figure4.png",
-    "images/3dFigure1/Figure3.png",
-         "images/3dFigure1/WhatsApp Image 2026-02-07 at 1.59.40 PM.jpeg",
-    "images/3dFigure1/WhatsApp Image 2026-02-07 at 1.59.39 PM (2).jpeg",
-    "images/3dFigure1/WhatsApp Image 2026-01-24 at 5.32.37 PM.jpeg",
-    "images/3dFigure1/Gemini_Generated_Image_iiw336iiw336iiw3 (1).png",
-    "images/3dFigure1/Gemini_Generated_Image_6k4otz6k4otz6k4o (1).png",
-    "images/3dFigure1/Figure2.png",
-    "images/3dFigure1/Figure1.png",
-    "images/3dFigure1/2b4093e0-eb02-4965-84b3-2bb5c5f6c6c7_1770472123.png"
+    "3dFigure1/Figure7.png",
+    "3dFigure1/Figure6.png",
+    "3dFigure1/Figure5.png",
+    "3dFigure1/exampleRyan.png",
+    "3dFigure1/c85d6002-ee6b-4268-aacc-c35b0adc5053_1770472200.png",
+    "3dFigure1/Figure4.png",
+    "3dFigure1/Figure3.png",
+         "3dFigure1/WhatsApp Image 2026-02-07 at 1.59.40 PM.jpeg",
+    "3dFigure1/WhatsApp Image 2026-02-07 at 1.59.39 PM (2).jpeg",
+    "3dFigure1/WhatsApp Image 2026-01-24 at 5.32.37 PM.jpeg",
+    "3dFigure1/Gemini_Generated_Image_iiw336iiw336iiw3 (1).png",
+    "3dFigure1/Gemini_Generated_Image_6k4otz6k4otz6k4o (1).png",
+    "3dFigure1/Figure2.png",
+    "3dFigure1/Figure1.png",
+    "3dFigure1/2b4093e0-eb02-4965-84b3-2bb5c5f6c6c7_1770472123.png"
         ]
     }
 };
