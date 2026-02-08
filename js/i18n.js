@@ -389,6 +389,46 @@ const I18n = (function () {
       sv: 'Tillverkad av tålig, stöttålig PETG-filament. Vattentålig, temperaturstabil och designad för att motstå slitage från dagligt liv. Den upphöjda texten bleknar eller slits inte av.',
       ar: 'مصنوعة من خيوط PETG الصعبة والمقاومة للصدمات. مقاومة للماء، مستقرة في درجة الحرارة، ومصممة لتحمل التآكل والتمزق من الحياة اليومية. النص المرتفع لن يبهت أو يتلاشى.'
     },
+    'figure.tag': {
+      en: 'Personalized Art',
+      sv: 'Personlig konst',
+      ar: 'فن مخصص'
+    },
+    'figure.title': {
+      en: 'The 3D Mini-Me',
+      sv: 'Din 3D-Figur',
+      ar: 'تمثال 3D الخاص بك'
+    },
+    'figure.description': {
+      en: 'Transform your favorite memory into a tangible masterpiece. Using advanced 3D modeling, we craft a detailed figure based on your photo.',
+      sv: 'Förvandla ditt favoritminne till ett påtagligt mästerverk. Med avancerad 3D-modellering skapar vi en detaljerad figur baserad på ditt foto.',
+      ar: 'حول ذكرياتك المفضلة إلى تحفة فنية ملموسة. باستخدام النمذجة ثلاثية الأبعاد المتقدمة، نصنع تمثالاً مفصلاً بناءً على صورتك.'
+    },
+    'figure.feature1': {
+      en: '✓ Custom-modeled from your photos',
+      sv: '✓ Specialmodellerad från dina foton',
+      ar: '✓ مصممة خصيصاً من صورك'
+    },
+    'figure.feature2': {
+      en: '✓ Exquisite high-resolution detail',
+      sv: '✓ Utsökt högupplöst detaljrikedom',
+      ar: '✓ تفاصيل رائعة عالية الدقة'
+    },
+    'figure.feature3': {
+      en: '✓ Durable, museum-quality finish',
+      sv: '✓ Hållbar finish av museikvalitet',
+      ar: '✓ تشطيب متين وبجودة المتاحف'
+    },
+    'figure.cta': {
+      en: 'Customize My Figure',
+      sv: 'Anpassa min figur',
+      ar: 'خصص تمثالي الآن'
+    },
+    'figure.price': {
+      en: 'From 499 SEK',
+      sv: 'Från 499 kr',
+      ar: 'ابتداءً من 499 كرونة'
+    },
 
     // Experience Specific
     'experience.genesis.title': {
