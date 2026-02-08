@@ -38,7 +38,7 @@ const FORM3D_CONTENT = {
         id: "couple-holding-heart",
         name: "Couple Holding Heart",
         price: "299 SEK",
-        tallyLink: "https://tally.so/r/rjPzVM",
+        tallyLink: "https://tally.so/r/jaQbK1",
         heroImage: "/CoupleHoldingHands/chhwarm.png",
         gallery: [
             "/CoupleHoldingHands/chhblank.png",
@@ -64,7 +64,7 @@ const FORM3D_CONTENT = {
         id: "Figure3d",
         name: "Figure3d",
         price: "49 SEK",
-        tallyLink: "https://tally.so/r/xXYOAG",
+        tallyLink: "https://tally.so/r/VL5jKN",
         heroImage: "3dFigure1/Figure3.png",
         gallery: [
        
