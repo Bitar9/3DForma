@@ -412,8 +412,8 @@ const I18n = (function () {
       ar: 'احتفال هادئ بالحب، مجمد في الوقت والحرفية المحلية.'
     },
     'experience.identity.title': {
-      en: '3D Figure YOU!',
-      sv: '3D Figure',
+      en: 'Boldly Show Your Identity!',
+      sv: '3D',
       ar: 'لك بجرأة'
     },
     'experience.identity.subtitle': {
