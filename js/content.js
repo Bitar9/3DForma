@@ -65,7 +65,7 @@ const FORM3D_CONTENT = {
         name: "Figure3d",
         price: "49 SEK",
         tallyLink: "https://tally.so/r/xXYOAG",
-        heroImage: "3dFigure1/figure3.png",
+        heroImage: "3dFigure1/Figure3.png",
         gallery: [
        
     "3dFigure1/Figure7.png",
