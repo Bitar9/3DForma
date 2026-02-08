@@ -29,9 +29,9 @@ if (path.includes('couple-sculpture')) {
 } else if (path.includes('couple-holding-heart')) {
   // Update this to match the new key name (previously it was pointing to .couple)
   this.populateProductPage(window.FORM3D_CONTENT.coupleHeart);
-} else if (path.includes('Figure3d')) {
+} else if (path.includes('Figure3D')) {
   // Update this to match the new key name (previously it was pointing to .couple)
-  this.populateProductPage(window.FORM3D_CONTENT.Figure3d);
+  this.populateProductPage(window.FORM3D_CONTENT.Figure3D);
 }
     },
 

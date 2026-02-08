@@ -550,7 +550,7 @@ const I18n = (function () {
       body.setAttribute('data-theme', 'cool');
     } else if (path.includes('couple-holding-heart')) {
       body.setAttribute('data-theme', 'warm');
-    } else if (path.includes('Figure3d')) { // Add this
+    } else if (path.includes('Figure3D')) { // Add this
   body.setAttribute('data-theme', 'cool'); 
 }
     else {
