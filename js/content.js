@@ -60,7 +60,7 @@ const FORM3D_CONTENT = {
             "Keytag/il_794xN.7712319889_j4v6.webp"
         ]
     },
-    Figure3d: {
+    Figure3D: {
         id: "Figure3d",
         name: "Figure3d",
         price: "49 SEK",
