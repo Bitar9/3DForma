@@ -53,11 +53,11 @@ const FORM3D_CONTENT = {
         name: "Custom Key Tag",
         price: "49 SEK",
         tallyLink: "https://tally.so/r/xXYOAG",
-        heroImage: "keytag/NameplateCar.png",
+        heroImage: "Keytag/NameplateCar.png",
         gallery: [
-            "Keytag/NameplateCar.png",
-            "Keytag/NamePlatecars.png",
-            "Keytag/il_794xN.7712319889_j4v6.webp"
+            "KeyTag/NameplateCar.png",
+            "KeyTag/NamePlatecars.png",
+            "KeyTag/il_794xN.7712319889_j4v6.webp"
         ]
     },
     Figure3D: {
