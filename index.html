@@ -5,10 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="description"
-    content="A sensory 3D printing experience. Custom objects, crafted with emotion and local care.">
+    content="Custom 3D printed gifts and accessories, crafted locally in Sweden. Couple sculptures, figurines, key tags — personalized and ready in 3–5 days.">
   <meta name="theme-color" content="#080808">
 
-  <title>3D Forma | The Experience</title>
+  <title>3D Forma — Custom 3D Printed Creations, Made Locally</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="3D Forma — Custom 3D Printed Creations">
+  <meta property="og:description"
+    content="Personalized 3D printed gifts. Couple sculptures, figurines, key tags — crafted locally with care.">
+  <meta property="og:type" content="website">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +23,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
@@ -24,149 +31,139 @@
 </head>
 
 <body class="is-loading">
-  <!-- Header -->
-  <header class="header">
+
+  <!-- ═══════════════════════════════════
+       HEADER
+       ═══════════════════════════════════ -->
+  <header class="header" id="site-header">
     <a href="index.html" class="logo" data-i18n="nav.logo">3D Forma</a>
 
-    <nav class="lang-switcher">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="sv">SV</button>
-      <button class="lang-btn" data-lang="ar">AR</button>
+    <nav class="nav-menu" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Experience</a>
+      <a href="catalog.html" class="nav-link">Shop</a>
+    </nav>
+
+    <nav class="lang-switcher" aria-label="Language selector">
+      <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="sv" aria-pressed="false">SV</button>
+      <button class="lang-btn" data-lang="ar" aria-pressed="false">AR</button>
     </nav>
   </header>
 
   <main>
-    <!-- Scene 0: Genesis -->
+
+    <!-- ═══════════════════════════════════
+         HERO — Cinematic Immersion
+         ═══════════════════════════════════ -->
     <section class="scene scene-genesis" id="genesis">
+
+      <!-- Immersive Background -->
+      <div class="hero-bg-visual">
+        <img src="introo.png" alt="" id="parallax-hero-img">
+        <div class="hero-bg-overlay"></div>
+      </div>
+
       <div class="scene-inner">
-        <h1 class="moment-title" data-i18n="experience.genesis.title">Crafting the intangible</h1>
-        <p class="moment-subtitle" data-i18n="experience.genesis.subtitle">3D printing is the bridge between imagination
-          and the objects you hold.</p>
+        <span class="hero-label" data-i18n="home.hero.label">Custom 3D Printing</span>
 
-        <div class="moment-visual">
-          <img src="introo.png" alt="The act of creation">
-          <div class="visual-overlay"></div>
-        </div>
-      </div>
-      <div class="scroll-indicator" data-i18n="experience.scroll">Scroll to feel</div>
-    </section>
+        <h1 class="moment-title hero-title" data-i18n="experience.genesis.title">Crafting the intangible</h1>
 
-
-    
- <!-- Scene 1: 3D Figure -->
-     <section class="scene scene-identity" id="identity" data-scene-theme="identity">
-      <div class="scene-inner text-right" style="align-items: flex-end; display: flex; flex-direction: column;">
-        <h2 class="moment-title" data-i18n="experience.identity.title">3D Figure YOU!</h2>
-        <p class="moment-subtitle" data-i18n="experience.identity.subtitle">Precise. Persistent. A statement of identity
-          carried with you always.</p>
-
-        <a href="product/Figure3D.html" class="moment-link">
-          <div class="moment-visual">
-            <img src="3dFigure1/Figure1.png" alt="Custom Key Tag">
-            <div class="visual-overlay"></div>
-          </div>
-        </a>
-
-        <div style="margin-top: 3rem;">
-          <a href="product/Figure3D.html" class="btn-experience" data-i18n="product.keytag.cta">View Details</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scene 2: Hearts -->
-    <section class="scene scene-intimacy" id="intimacy" data-scene-theme="intimacy">
-      <div class="scene-inner">
-        <h2 class="moment-title" data-i18n="experience.intimacy.title">Connection, captured</h2>
-        <p class="moment-subtitle" data-i18n="experience.intimacy.subtitle">A quiet celebration of love, frozen in time
-          and local craftsmanship.</p>
-
-        <a href="product/couple-sculpture.html" class="moment-link">
-          <div class="moment-visual">
-            <img src="CoupleSculpture/Par3.png" alt="Romantic Sculpture">
-            <div class="visual-overlay"></div>
-          </div>
-        </a>
-
-        <div style="margin-top: 3rem;">
-          <a href="product/couple-holding-heart.html" class="btn-experience" data-i18n="product.couple.cta">View Details</a>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-
-    <section class="scene scene-intimacy" id="intimacy" data-scene-theme="intimacy">
-      <div class="scene-inner">
-        <h2 class="moment-title" data-i18n="experience.intimacy.title">Connection, captured</h2>
-        <p class="moment-subtitle" data-i18n="experience.intimacy.subtitle">A quiet celebration of love, frozen in time
-          and local craftsmanship.</p>
-
-        <a href="product/couple-holding-heart.html" class="moment-link">
-          <div class="moment-visual">
-            <img src="CoupleHoldingHands/chhwarm.png" alt="Romantic Sculpture">
-            <div class="visual-overlay"></div>
-          </div>
-        </a>
-
-        <div style="margin-top: 3rem;">
-          <a href="product/couple-holding-heart.html" class="btn-experience" data-i18n="product.couple.cta">View Details</a>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <!-- Scene 4: Identity -->
-    <section class="scene scene-identity" id="identity" data-scene-theme="identity">
-      <div class="scene-inner text-right" style="align-items: flex-end; display: flex; flex-direction: column;">
-        <h2 class="moment-title" data-i18n="experience.identity.title">3dfigure</h2>
-        <p class="moment-subtitle" data-i18n="experience.identity.subtitle">Precise. Persistent. A statement of identity
-          carried with you always.</p>
-
-        <a href="product/car-key-tag.html" class="moment-link">
-          <div class="moment-visual">
-            <img src="KeyTag/il_794xN.7712319889_j4v6.webp" alt="Custom Key Tag">
-            <div class="visual-overlay"></div>
-          </div>
-        </a>
-
-        <div style="margin-top: 3rem;">
-          <a href="product/car-key-tag.html" class="btn-experience" data-i18n="product.keytag.cta">View Details</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scene 3: Connection (Footer) -->
-    <section class="scene scene-footer" id="contact" style="min-height: 50vh; justify-content: flex-start;">
-      <div class="scene-inner">
-        <h2 class="moment-title" data-i18n="home.trust.title" style="font-size: 2.5rem;">Why Choose Us</h2>
-        <p class="moment-subtitle" style="max-width: 60ch;">
-          <span data-i18n="home.trust.local.title">Local Production</span>.
-          <span data-i18n="home.trust.custom.title">Fully Customizable</span>.
-          <span data-i18n="home.trust.quality.title">Quality Materials</span>.
+        <p class="moment-subtitle hero-subtitle" data-i18n="experience.genesis.subtitle">
+          Beautiful objects, made locally. Hand-finished personalized gifts, ready in 3–5 days.
         </p>
 
-        <div style="margin-top: 4rem;">
-          <p class="moment-subtitle" data-i18n="order.contact">Questions? Contact us at</p>
-          <a href="mailto:hello@form3d.local" class="logo" style="font-size: 2rem;">hello@form3d.local</a>
+        <!-- Hero Stats (Dynamic) -->
+        <div class="hero-stats-container" id="dynamic-hero-stats">
+          <!-- Rendered by renderer.js -->
         </div>
 
-        <div style="margin-top: 8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-          <p class="moment-subtitle" style="font-size: 0.8rem;" data-i18n="footer.copyright">© 2025 Form3D. All rights
-            reserved.</p>
+        <div class="hero-cta-group">
+          <a href="#dynamic-products" class="btn-primary" data-i18n="home.hero.cta.primary">Explore Collections</a>
+          <a href="catalog.html" class="btn-secondary">View Catalog</a>
         </div>
       </div>
+
+      <div class="scroll-indicator" data-i18n="experience.scroll">Scroll to explore</div>
     </section>
+
+
+    <!-- ═══════════════════════════════════
+         PRODUCTS (Auto-generated from products.js)
+         Psychology: Primacy effect — best product first
+         ═══════════════════════════════════ -->
+    <div id="dynamic-products"></div>
+
+
+    <!-- ═══════════════════════════════════
+         HOW IT WORKS
+         Psychology: Endowed progress — makes the process feel started
+         ═══════════════════════════════════ -->
+    <section class="scene scene-how" id="how-it-works">
+      <div class="scene-inner" id="dynamic-how"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         SOCIAL PROOF / REVIEWS
+         Psychology: Bandwagon effect + Herd behavior
+         ═══════════════════════════════════ -->
+    <section class="scene scene-reviews" id="reviews">
+      <div class="scene-inner" id="dynamic-reviews"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         TRUST / WHY US
+         Psychology: Authority + Risk reduction
+         ═══════════════════════════════════ -->
+    <section class="scene scene-trust" id="why-us">
+      <div class="scene-inner" id="dynamic-trust"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         GUARANTEE
+         Psychology: Loss aversion reversal — removes fear
+         ═══════════════════════════════════ -->
+    <section class="scene scene-guarantee" id="guarantee">
+      <div class="scene-inner" id="dynamic-guarantee"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         FOOTER
+         Psychology: Peak-End Rule — positive last touch
+         ═══════════════════════════════════ -->
+    <footer class="scene scene-footer-dynamic" id="contact">
+      <div class="scene-inner" id="dynamic-footer"></div>
+    </footer>
+
   </main>
 
-  <!-- Scripts -->
-  <script src="js/content.js"></script>
+  <!-- ═══════════════════════════════════
+       MOBILE BOTTOM NAV
+       ═══════════════════════════════════ -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-link active">
+      <span class="mobile-nav-icon">✨</span>
+      <span>Experience</span>
+    </a>
+    <a href="catalog.html" class="mobile-nav-link">
+      <span class="mobile-nav-icon">🛒</span>
+      <span>Shop</span>
+    </a>
+    <a href="#contact" class="mobile-nav-link">
+      <span class="mobile-nav-icon">✉️</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/products.js"></script>
+  <script src="js/renderer.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 
 </html>

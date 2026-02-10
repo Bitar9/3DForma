@@ -1,0 +1,394 @@
+/* ═══════════════════════════════════════════════════════════
+   FORM3D — PRODUCT PAGE STYLES
+   Each product gets its own soul through data-driven theming.
+   The mood (warm/bold/playful) + accent color = unique feel.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─── HERO ──────────────────────────────── */
+.pp-hero {
+    min-height: 90vh;
+    min-height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem var(--gutter);
+    padding-bottom: 4rem;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.pp-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            transparent 30%,
+            var(--hero-bg, var(--bg-deep)) 85%);
+    pointer-events: none;
+}
+
+.pp-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pp-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-xl);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.pp-hero-title {
+    font-size: clamp(2.5rem, 10vw, 5rem) !important;
+    line-height: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.pp-hero-subtitle {
+    max-width: 50ch;
+    font-size: clamp(1rem, 3.5vw, 1.2rem) !important;
+    margin-bottom: 2rem !important;
+}
+
+.pp-hero-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.pp-price {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pp-old-price {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+}
+
+.pp-hero-cta {
+    font-size: 0.9rem !important;
+    padding: 1.1rem 2.5rem !important;
+}
+
+.pp-price-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+
+/* ─── TRUST STRIP ───────────────────────── */
+.pp-trust-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem var(--gutter);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    min-height: auto !important;
+}
+
+.pp-trust-item {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ─── STORY SECTION ─────────────────────── */
+.pp-story {
+    min-height: auto !important;
+    padding: 6rem var(--gutter);
+}
+
+.pp-story-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pp-story-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+}
+
+.pp-story-text {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+
+/* ─── FEATURES LIST ─────────────────────── */
+.pp-features {
+    min-height: auto !important;
+    padding: 4rem var(--gutter);
+}
+
+.pp-features-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pp-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pp-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s var(--ease-sensual), border-color 0.3s;
+}
+
+.pp-feature-item:hover {
+    transform: translateX(6px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.pp-feature-check {
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+
+/* ─── GALLERY ───────────────────────────── */
+.pp-gallery {
+    min-height: auto !important;
+    padding: 4rem var(--gutter);
+}
+
+.pp-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.pp-gallery-item {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s var(--ease-sensual);
+}
+
+.pp-gallery-item:hover {
+    transform: scale(1.03);
+    z-index: 2;
+}
+
+.pp-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-sensual);
+}
+
+.pp-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* ─── DETAILS ───────────────────────────── */
+.pp-details {
+    min-height: auto !important;
+    padding: 5rem var(--gutter);
+}
+
+.pp-details-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pp-detail-block {
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.pp-detail-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.pp-detail-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+
+/* ─── AUDIENCE ──────────────────────────── */
+.pp-audience {
+    min-height: auto !important;
+    padding: 4rem var(--gutter);
+}
+
+.pp-audience-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pp-audience-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.pp-audience-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+
+/* ─── FINAL CTA ─────────────────────────── */
+.pp-final-cta {
+    min-height: auto !important;
+    padding: 6rem var(--gutter);
+    text-align: center;
+}
+
+.pp-final-inner {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pp-final-price {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.pp-final-btn {
+    font-size: 1rem !important;
+    padding: 1.2rem 3rem !important;
+    display: inline-flex;
+}
+
+.pp-final-note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+
+/* ─── BACK LINK ─────────────────────────── */
+.pp-back {
+    text-align: center;
+    padding: 2rem var(--gutter) 4rem;
+}
+
+.pp-back-link {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.pp-back-link:hover {
+    color: var(--text-primary);
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════ */
+@media (max-width: 767px) {
+    .pp-hero {
+        min-height: 75vh;
+        padding-bottom: 3rem;
+    }
+
+    .pp-hero-title {
+        font-size: clamp(2rem, 9vw, 3.5rem) !important;
+    }
+
+    .pp-gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .pp-gallery-item {
+        border-radius: var(--radius-sm);
+    }
+
+    .pp-details-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .pp-trust-strip {
+        gap: 0.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .pp-trust-item {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .pp-feature-item {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}

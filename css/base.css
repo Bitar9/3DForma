@@ -1,8 +1,9 @@
 /* ========================================
-   FORM3D - BASE EXPERIENCE
+   FORM3D — BASE EXPERIENCE
+   Core layout, typography, visuals
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -14,17 +15,18 @@ body {
     transition: background-color var(--duration-slow) var(--ease-sensual);
 }
 
+/* ─── Texture Overlay (subtle grain) ─── */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
+    opacity: 0.04;
     pointer-events: none;
     z-index: 9999;
 }
 
-/* --- Atmospheric Light --- */
+/* ─── Atmospheric Light behind scenes ─── */
 .scene::after {
     content: "";
     position: absolute;
@@ -54,13 +56,16 @@ body::before {
     }
 }
 
-/* --- Header --- */
+
+/* ═══════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════ */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 1.25rem var(--gutter);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
@@ -70,7 +75,7 @@ body::before {
 
 .logo {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-decoration: none;
     color: white;
@@ -79,25 +84,35 @@ body::before {
 
 .lang-switcher {
     display: flex;
-    gap: 1rem;
+    gap: 0.25rem;
 }
 
 .lang-btn {
     background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.75rem;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 0.5rem;
-    transition: color 0.3s ease;
+    padding: 0.4rem 0.65rem;
+    border-radius: var(--radius-xl);
+    transition: color 0.3s ease, border-color 0.3s, background 0.3s;
+}
+
+.lang-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .lang-btn.active {
     color: white;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* --- Scene Container --- */
+
+/* ═══════════════════════════════════════
+   SCENE CONTAINER
+   ═══════════════════════════════════════ */
 .scene {
     position: relative;
     min-height: 100vh;
@@ -114,31 +129,38 @@ body::before {
     width: 100%;
 }
 
-/* --- Typography --- */
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY (Scroll-reveal style)
+   ═══════════════════════════════════════ */
 .moment-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 10vw, 5rem);
-    line-height: 1;
+    font-size: clamp(2.2rem, 9vw, 4.5rem);
+    line-height: 1.05;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity var(--duration-slow) var(--ease-sensual),
         transform var(--duration-slow) var(--ease-sensual);
+    transition-delay: 0.1s;
 }
 
 .moment-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
     color: var(--text-secondary);
-    max-width: 40ch;
-    margin-bottom: 3rem;
+    max-width: 42ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity var(--duration-slow) var(--ease-sensual) 0.2s,
-        transform var(--duration-slow) var(--ease-sensual) 0.2s;
+    transition: opacity var(--duration-slow) var(--ease-sensual),
+        transform var(--duration-slow) var(--ease-sensual);
+    transition-delay: 0.2s;
 }
 
+/* Reveal on intersection */
 .is-visible .moment-title,
 .is-visible .moment-subtitle,
 .is-visible .moment-visual {
@@ -148,31 +170,29 @@ body::before {
 
 .is-visible .moment-visual {
     transform: scale(1);
-    box-shadow: 0 0 80px var(--intimacy-glow);
 }
 
-.scene-identity.is-visible .moment-visual {
-    box-shadow: 0 0 80px var(--identity-glow);
-}
 
-/* --- Visuals --- */
+/* ═══════════════════════════════════════
+   VISUALS (Product Images)
+   ═══════════════════════════════════════ */
 .moment-visual {
     position: relative;
     width: 100%;
     max-height: 70vh;
     background-color: transparent;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
     opacity: 0;
-    transform: scale(1.05);
-    filter: brightness(0.8) contrast(1.2);
+    transform: scale(1.04);
+    filter: brightness(0.85) contrast(1.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity var(--duration-slow) var(--ease-sensual) 0.4s,
-        transform var(--duration-slow) var(--ease-sensual) 0.4s,
-        box-shadow var(--duration-slow) var(--ease-sensual) 0.4s,
-        filter var(--duration-slow) var(--ease-sensual) 0.4s;
+    transition: opacity var(--duration-slow) var(--ease-sensual) 0.3s,
+        transform var(--duration-slow) var(--ease-sensual) 0.3s,
+        box-shadow var(--duration-slow) var(--ease-sensual) 0.3s,
+        filter var(--duration-slow) var(--ease-sensual) 0.3s;
 }
 
 .moment-link {
@@ -192,21 +212,29 @@ body::before {
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: contrast(1.1) brightness(0.9);
+    filter: contrast(1.05) brightness(0.95);
 }
 
 .visual-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
     pointer-events: none;
 }
 
-/* --- Specific Scene Layouts --- */
 
-/* Hero / Genesis */
+/* ═══════════════════════════════════════
+   HERO / GENESIS SCENE
+   ═══════════════════════════════════════ */
 .scene-genesis {
     background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.scene-genesis .moment-visual {
+    margin-top: 2rem;
+    border-radius: var(--radius-md);
 }
 
 .scroll-indicator {
@@ -214,14 +242,14 @@ body::before {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--text-dim);
-    animation: pulse 2s infinite ease-in-out;
+    animation: pulseScroll 2.5s infinite ease-in-out;
 }
 
-@keyframes pulse {
+@keyframes pulseScroll {
 
     0%,
     100% {
@@ -231,62 +259,74 @@ body::before {
 
     50% {
         opacity: 0.6;
-        transform: translateX(-50%) translateY(10px);
+        transform: translateX(-50%) translateY(8px);
     }
 }
 
-/* Intimacy Scene */
-.scene-intimacy {
-    background-color: transparent;
-}
 
+/* ═══════════════════════════════════════
+   SCENE THEMES
+   ═══════════════════════════════════════ */
+
+/* Intimacy (warm romantic) */
 .scene-intimacy .moment-title {
     color: var(--intimacy-text);
     font-style: italic;
 }
 
-/* Identity Scene */
-.scene-identity {
-    background-color: transparent;
+.is-visible.scene-intimacy .moment-visual {
+    box-shadow: 0 0 60px var(--intimacy-glow);
 }
 
+/* Identity (bold tech) */
 .scene-identity .moment-title {
     color: var(--identity-text);
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
 }
 
-/* --- Interactive Elements --- */
+.is-visible.scene-identity .moment-visual {
+    box-shadow: 0 0 60px var(--identity-glow);
+}
+
+
+/* ═══════════════════════════════════════
+   INTERACTIVE ELEMENTS
+   ═══════════════════════════════════════ */
 .btn-experience {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.9rem 2.2rem;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     font-size: 0.8rem;
+    border-radius: var(--radius-xl);
     transition: all 0.4s var(--ease-sensual);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-experience:hover {
     background: white;
-    color: black;
+    color: #080808;
     border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
-/* --- Mobile Specifics --- */
-@media (max-width: 768px) {
-    .scene {
-        padding: 4rem 1.5rem;
-    }
+.btn-experience:active {
+    transform: scale(0.97);
 }
 
-/* --- Sticky Buy Bar --- */
+
+/* ═══════════════════════════════════════
+   STICKY BUY BAR (Product pages)
+   ═══════════════════════════════════════ */
 .sticky-buy-bar {
     position: fixed;
     bottom: -100px;
@@ -294,24 +334,24 @@ body::before {
     transform: translateX(-50%);
     width: 90%;
     max-width: 500px;
-    background: rgba(15, 15, 15, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 100px;
+    border-radius: var(--radius-xl);
     padding: 0.75rem 0.75rem 0.75rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1100;
     transition: bottom 0.8s var(--ease-sensual), opacity 0.8s var(--ease-sensual);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     pointer-events: none;
     opacity: 0;
 }
 
 .sticky-buy-bar.is-visible {
-    bottom: 2.5rem;
+    bottom: 2rem;
     opacity: 1;
     pointer-events: auto;
 }
@@ -324,13 +364,13 @@ body::before {
 .sticky-buy-price {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 1;
     color: white;
 }
 
 .sticky-buy-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-dim);
@@ -340,14 +380,14 @@ body::before {
 .btn-buy-sticky {
     background: white;
     color: black;
-    padding: 0.75rem 1.5rem;
-    border-radius: 100px;
+    padding: 0.7rem 1.4rem;
+    border-radius: var(--radius-xl);
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-sensual);
     white-space: nowrap;
 }
 
@@ -359,18 +399,44 @@ body::before {
     transform: scale(0.95);
 }
 
+
+/* ═══════════════════════════════════════
+   MOBILE SPECIFICS
+   ═══════════════════════════════════════ */
 @media (max-width: 768px) {
+    .scene {
+        padding: 4rem 1.25rem;
+    }
+
+    .header {
+        padding: 1rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
     .sticky-buy-bar {
         width: 95%;
         padding: 0.6rem 0.6rem 0.6rem 1.5rem;
-        bottom: -100px;
     }
 
     .sticky-buy-bar.is-visible {
-        bottom: 1.5rem;
+        bottom: 1rem;
     }
 
     .sticky-buy-price {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
+}
+
+/* ─── Smooth anchor scroll offset ─── */
+:target {
+    scroll-margin-top: 4rem;
+}
+
+/* ─── Selection Color ─── */
+::selection {
+    background: rgba(56, 189, 248, 0.3);
+    color: var(--text-primary);
 }
