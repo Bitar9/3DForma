@@ -67,8 +67,11 @@
             <img src="${p.thumbnail || p.heroImage}" alt="${p.name}" loading="lazy">
           </div>
           <div class="catalog-info">
-            <span class="catalog-name">${p.name}</span>
-            <span class="catalog-price">${p.price}</span>
+            <div class="catalog-meta">
+              <span class="catalog-name">${p.name}</span>
+              <span class="catalog-price">${p.price}</span>
+            </div>
+            <div class="catalog-cta-hint">View →</div>
           </div>
         </a>
       `;
@@ -295,7 +298,7 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="pp-hero scene is-visible" id="hero-image"
-                 style="--hero-bg: ${theme.bg}; --hero-glow: ${theme.glow}; background-image: linear-gradient(to bottom, transparent 40%, ${theme.bg}), url('${base}${product.heroImage}');">
+                 style="--hero-bg: ${theme.bg}; --hero-glow: ${theme.glow}; background-image: url('${base}${product.heroImage}');">
           <div class="pp-hero-inner">
             ${product.badge ? `<span class="pp-badge">${product.badge}</span>` : ''}
             <h1 class="pp-hero-title moment-title" style="color:${theme.textColor}; ${mood === 'warm' ? 'font-style:italic;' : 'text-transform:uppercase; letter-spacing:-0.04em;'}">${product.name}</h1>

@@ -7,17 +7,19 @@
 
 /* ─── HERO ──────────────────────────────── */
 .pp-hero {
-    min-height: 90vh;
-    min-height: 90dvh;
+    min-height: 85vh;
+    min-height: 85dvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 2rem var(--gutter);
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
     background-size: cover;
-    background-position: center top;
+    background-position: center bottom;
+    /* Better for these 3D object photos */
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
 }
 
 .pp-hero::before {
@@ -25,9 +27,11 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom,
-            transparent 0%,
-            transparent 30%,
-            var(--hero-bg, var(--bg-deep)) 85%);
+            rgba(0, 0, 0, 0.4) 0%,
+            transparent 20%,
+            transparent 50%,
+            var(--hero-bg, var(--bg-deep)) 95%);
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -104,10 +108,11 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 2rem var(--gutter);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 2.5rem var(--gutter);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     min-height: auto !important;
+    background: rgba(255, 255, 255, 0.01);
 }
 
 .pp-trust-item {
