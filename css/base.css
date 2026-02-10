@@ -26,6 +26,13 @@ body::before {
     z-index: 9999;
 }
 
+@media (max-width: 768px) {
+    body::before {
+        display: none;
+        /* Disable expensive filter on mobile for smooth scrolling */
+    }
+}
+
 /* ─── Atmospheric Light behind scenes ─── */
 .scene::after {
     content: "";
@@ -140,10 +147,9 @@ body::before {
     font-weight: 700;
     margin-bottom: 1.5rem;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity var(--duration-slow) var(--ease-sensual),
-        transform var(--duration-slow) var(--ease-sensual);
-    transition-delay: 0.1s;
+    transform: translateY(20px);
+    transition: opacity var(--duration-base) var(--ease-sensual),
+        transform var(--duration-base) var(--ease-sensual);
 }
 
 .moment-subtitle {

@@ -13,10 +13,11 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 2rem var(--gutter);
-    padding-bottom: 6rem;
+    padding-bottom: 7rem;
+    /* Extra room for mobile bars */
     background-size: cover;
-    background-position: center bottom;
-    /* Better for these 3D object photos */
+    background-position: center;
+    /* Safer for various subjects on mobile */
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;

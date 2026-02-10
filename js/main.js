@@ -25,8 +25,8 @@
     /** IntersectionObserver — scroll reveal + theme switching */
     initObserver() {
       const options = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -8% 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -10% 0px'
       };
 
       this.observer = new IntersectionObserver((entries) => {
@@ -150,22 +150,29 @@
     /** Loading state manager */
     handleLoading() {
       const reveal = () => {
+        if (document.body.classList.contains('is-ready')) return;
         document.body.classList.remove('is-loading');
         document.body.classList.add('is-ready');
 
-        // Reveal first scene
-        const first = document.querySelector('.scene');
-        if (first) first.classList.add('is-visible');
+        // Reveal already present scenes
+        const scenes = document.querySelectorAll('.scene');
+        scenes.forEach(s => {
+          if (s.getBoundingClientRect().top < window.innerHeight) {
+            s.classList.add('is-visible');
+          }
+        });
 
-        // Re-observe dynamically rendered scenes (from renderer.js)
-        // Small delay to let renderer.js finish
-        setTimeout(() => this.observeAllScenes(), 100);
+        setTimeout(() => this.observeAllScenes(), 200);
       };
 
-      window.addEventListener('load', reveal);
+      // Reveal faster on DOMContentLoaded, don't wait for massive images to finish
+      document.addEventListener('DOMContentLoaded', reveal);
+      window.addEventListener('load', reveal); // Fallback
 
-      // Fallback
-      if (document.readyState === 'complete') reveal();
+      // Immediate if already past DOMContentLoaded
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        reveal();
+      }
     }
   };
 
