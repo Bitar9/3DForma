@@ -4,94 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Romantic Couple Sculpture - A timeless keepsake celebrating love and connection.">
+    <meta name="description" content="Couple Holding Heart - Two figures, one heart. A symbol of togetherness.">
     <meta name="theme-color" content="#1A1614">
-
-    <title>Intimacy | Form3D</title>
+    <title>3D Forma</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/product-page.css">
 
-    <style>
-        body {
-            background-color: var(--intimacy-bg);
-        }
-
-        .product-hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            background: linear-gradient(to bottom, transparent, var(--intimacy-bg));
-            background-size: cover;
-            background-position: center;
-            padding: var(--gutter);
-        }
-    </style>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
 </head>
 
-<body data-theme="intimacy">
+<body class="is-loading">
     <header class="header">
-        <a href="../index.html" class="logo">Form3D</a>
-        <nav class="lang-switcher">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="sv">SV</button>
-            <button class="lang-btn" data-lang="ar">AR</button>
+        <a href="../index.html" class="logo">3D Forma</a>
+
+        <nav class="nav-menu">
+            <a href="../index.html" class="nav-link">Experience</a>
+            <a href="../catalog.html" class="nav-link">Shop</a>
+        </nav>
+
+        <nav class="lang-switcher" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" data-lang="sv" aria-pressed="false">SV</button>
+            <button class="lang-btn" data-lang="ar" aria-pressed="false">AR</button>
         </nav>
     </header>
 
     <main>
-        <section class="product-hero is-visible" id="hero-image">
-            <div class="scene-inner">
-                <h1 class="moment-title" data-i18n="product.couple.title">Couple Sculpture</h1>
-                <p class="moment-subtitle" data-i18n="product.couple.description">A timeless keepsake celebrating love
-                    and connection.</p>
-            </div>
-        </section>
-
-        <section class="scene is-visible" style="min-height: auto; padding-top: 0;">
-            <div class="scene-inner">
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: start;">
-                    <div>
-                        <h2 class="moment-title" style="font-size: 2rem;" data-i18n="couple.details.title1">A Meaningful
-                            Keepsake</h2>
-                        <p class="moment-subtitle" data-i18n="couple.details.text1">Every curve and line is designed to
-                            evoke warmth and intimacy.</p>
-
-                        <ul style="list-style: none; margin-top: 2rem;">
-                            <li class="moment-subtitle" style="margin-bottom: 1rem; color: var(--intimacy-text);"
-                                data-i18n="couple.feature1">✓ Personalized with two names</li>
-                            <li class="moment-subtitle" style="margin-bottom: 1rem; color: var(--intimacy-text);"
-                                data-i18n="couple.feature2">✓ Optional special date engraving</li>
-                            <li class="moment-subtitle" style="margin-bottom: 1rem; color: var(--intimacy-text);"
-                                data-i18n="couple.feature3">✓ Multiple elegant colors</li>
-                        </ul>
-                    </div>
-
-                    <!-- Additional Product Images will be injected here -->
-                    <div id="product-gallery" style="display: flex; flex-direction: column; gap: 2rem;">
-                        <!-- JS will inject images here -->
-                        <!--    <div class="moment-visual" style="aspect-ratio: 1/1;"> -->
-                        <!--    <img src="/images/PAR1.png" alt="Detail view"> -->
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 6rem; text-align: center; padding-bottom: 5rem;">
-                <p class="moment-title" id="product-price" style="font-size: 3rem;" data-i18n="couple.price">From
-                    249 SEK</p>
-                <a href="#" id="product-link" class="btn-experience" data-i18n="couple.cta">Order via WhatsApp</a>
-                <p class="moment-subtitle" style="margin-top: 1rem; font-size: 0.8rem;" data-i18n="couple.note">
-                    Handcrafted locally in 3-5 days.</p>
-            </div>
-            </div>
-        </section>
+        <div id="product-page-root" data-product-slug="couple-holding-heart"></div>
     </main>
 
-    <script src="../js/content.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/renderer.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="../js/main.js"></script>
 </body>
