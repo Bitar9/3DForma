@@ -19,6 +19,133 @@
       this.initScrollActions();
       this.initSmoothScrollLinks();
       this.initStickyBarForProductPages();
+      this.initHeroSlideshow();
+      this.initGalleryInnovation();
+    },
+
+    /** 
+     *  INNOVATION: 
+     *  1. Magnetic Gallery Items (follow cursor slighty)
+     *  2. FLIP Lightbox (seamless expansion)
+     */
+    initGalleryInnovation() {
+      const gallery = document.getElementById('product-gallery');
+      if (!gallery) return;
+
+      // 1. Magnetic Hover
+      const items = gallery.querySelectorAll('.pp-gallery-item');
+      items.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+          const rect = item.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          // Sensitive movement
+          item.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.05)`;
+          item.classList.add('is-magnetic');
+        });
+
+        item.addEventListener('mouseleave', () => {
+          item.style.transform = '';
+          setTimeout(() => item.classList.remove('is-magnetic'), 300);
+        });
+
+        // 2. Lightbox Trigger
+        item.addEventListener('click', (e) => {
+          e.preventDefault(); // prevent navigation if link
+          const img = item.querySelector('img');
+          if (img) this.openLightbox(img);
+        });
+      });
+    },
+
+    openLightbox(sourceImg) {
+      // Create Lightbox Container
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+
+      // Clone Image for FLIP animation
+      const clone = sourceImg.cloneNode();
+      clone.className = 'lightbox-img';
+
+      // Initial Position (FLIP - First)
+      const rect = sourceImg.getBoundingClientRect();
+
+      // Set initial styles to match source
+      Object.assign(clone.style, {
+        position: 'fixed',
+        top: `${rect.top}px`,
+        left: `${rect.left}px`,
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
+        zIndex: '3000',
+        transition: 'all 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
+        objectFit: 'contain'
+      });
+
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      // Force reflow
+      requestAnimationFrame(() => {
+        overlay.classList.add('is-open');
+        // Target State (FLIP - Last)
+        Object.assign(clone.style, {
+          top: '50%',
+          left: '50%',
+          width: 'auto',
+          height: 'auto',
+          maxWidth: '90vw',
+          maxHeight: '90vh',
+          transform: 'translate(-50%, -50%)'
+        });
+      });
+
+      // Close Handler
+      const close = () => {
+        overlay.classList.remove('is-open');
+        const newRect = sourceImg.getBoundingClientRect();
+
+        Object.assign(clone.style, {
+          top: `${newRect.top}px`,
+          left: `${newRect.left}px`,
+          width: `${newRect.width}px`,
+          height: `${newRect.height}px`,
+          transform: 'translate(0, 0)',
+          maxWidth: 'none',
+          maxHeight: 'none'
+        });
+
+        setTimeout(() => {
+          if (document.body.contains(overlay)) document.body.removeChild(overlay);
+        }, 500);
+      };
+
+      overlay.onclick = close;
+      // Escape key close
+      document.addEventListener('keydown', function escapeHandler(e) {
+        if (e.key === 'Escape') {
+          close();
+          document.removeEventListener('keydown', escapeHandler);
+        }
+      });
+    },
+
+
+    /** Dynamic Hero Slideshow (Ken Burns Effect) */
+    initHeroSlideshow() {
+      const slideshow = document.getElementById('hero-slideshow');
+      if (!slideshow) return;
+
+      const slides = slideshow.querySelectorAll('.pp-slide');
+      if (slides.length <= 1) return;
+
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }, 5000); // Switch every 5 seconds
     },
 
 

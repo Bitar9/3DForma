@@ -297,18 +297,38 @@
       root.innerHTML = `
 
         <!-- ═══ HERO ═══ -->
-        <section class="pp-hero scene is-visible" id="hero-image"
-                 style="--hero-bg: ${theme.bg}; --hero-glow: ${theme.glow}; background-image: url('${base}${product.heroImage}');">
+        <!-- ═══ HERO ═══ -->
+        <section class="pp-hero scene is-visible" id="hero-image" style="--hero-bg: ${theme.bg};">
+          
+          <!-- DYNAMIC BACKGROUND SLIDESHOW -->
+          <div class="pp-hero-slideshow" id="hero-slideshow">
+             <!-- Primary Hero Image -->
+             <div class="pp-slide is-active" style="background-image: url('${base}${product.heroImage}');"></div>
+             <!-- Gallery Images (First 3 for variety) -->
+             ${product.gallery.slice(0, 3).map(img => `
+                <div class="pp-slide" style="background-image: url('${base}${img}');"></div>
+             `).join('')}
+          </div>
+
+          <!-- OVERLAY GRADIENT (For text readability) -->
+          <div class="pp-hero-overlay"></div>
+
           <div class="pp-hero-inner">
-            ${product.badge ? `<span class="pp-badge">${product.badge}</span>` : ''}
-            <h1 class="pp-hero-title moment-title" style="color:${theme.textColor}; ${mood === 'warm' ? 'font-style:italic;' : 'text-transform:uppercase; letter-spacing:-0.04em;'}">${product.name}</h1>
-            <p class="pp-hero-subtitle moment-subtitle">${product.subtitle}</p>
-            <div class="pp-hero-price">
-              <span class="pp-price">${product.price}</span>
-              ${product.oldPrice ? `<span class="pp-old-price">${product.oldPrice}</span>` : ''}
+            <div class="pp-hero-content">
+              ${product.badge ? `<span class="pp-badge">${product.badge}</span>` : ''}
+              <h1 class="pp-hero-title moment-title" style="color:${theme.textColor}">${product.name}</h1>
+              <p class="pp-hero-subtitle moment-subtitle" style="color: rgba(255,255,255,0.9)">${product.subtitle}</p>
+              
+              <div class="pp-hero-price-row">
+                <div class="pp-hero-price">
+                  <span class="pp-price" style="color: #fff">${product.price}</span>
+                  ${product.oldPrice ? `<span class="pp-old-price" style="color: rgba(255,255,255,0.6)">${product.oldPrice}</span>` : ''}
+                </div>
+                <a href="${product.tallyLink || site.whatsapp || '#'}" class="pp-hero-cta btn-primary" id="product-link">Order Now →</a>
+              </div>
+              
+              ${product.priceNote ? `<p class="pp-price-note" style="color: rgba(255,255,255,0.7)">${product.priceNote}</p>` : ''}
             </div>
-            <a href="${product.tallyLink || site.whatsapp || '#'}" class="pp-hero-cta btn-primary" id="product-link">Order Now →</a>
-            ${product.priceNote ? `<p class="pp-price-note">${product.priceNote}</p>` : ''}
           </div>
         </section>
 

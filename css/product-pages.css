@@ -7,17 +7,17 @@
 
 /* ─── HERO ──────────────────────────────── */
 .pp-hero {
-    min-height: 85vh;
-    min-height: 85dvh;
+    min-height: 80vh;
+    min-height: 80dvh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    /* Centered content */
+    align-items: center;
+    text-align: center;
     padding: 2rem var(--gutter);
-    padding-bottom: 7rem;
-    /* Extra room for mobile bars */
     background-size: cover;
     background-position: center;
-    /* Safer for various subjects on mobile */
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
@@ -27,21 +27,93 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.4) 0%,
-            transparent 20%,
-            transparent 50%,
-            var(--hero-bg, var(--bg-deep)) 95%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%),
+        linear-gradient(to bottom, transparent 60%, var(--hero-bg, var(--bg-deep)) 98%);
     z-index: 1;
     pointer-events: none;
 }
 
+/* ─── DYNAMIC HERO SLIDESHOW ──────────────── */
+.pp-hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.pp-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1.5s ease-in-out, transform 8s ease-out;
+}
+
+.pp-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 20%,
+            rgba(0, 0, 0, 0.4) 60%,
+            rgba(0, 0, 0, 0.8) 85%,
+            var(--hero-bg, #000) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pp-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px) brightness(0.6);
+    opacity: 0.4;
+    z-index: 0;
+    transform: scale(1.1);
+}
+
 .pp-hero-inner {
     position: relative;
-    z-index: 2;
+    z-index: 5;
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Text at bottom */
+    align-items: flex-start;
+    /* Align left */
+    text-align: left;
+    padding-bottom: 4rem;
+    gap: 0;
+}
+
+
+
+.pp-hero-content {
+    max-width: 700px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroContentReveal 1s var(--ease-sensual) forwards;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes heroContentReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .pp-badge {
@@ -60,22 +132,76 @@
 }
 
 .pp-hero-title {
-    font-size: clamp(2.5rem, 10vw, 5rem) !important;
-    line-height: 1 !important;
-    margin-bottom: 1rem !important;
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.25rem !important;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 100px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
+}
+
+
+.pp-hero-content {
+    max-width: 700px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroContentReveal 1s var(--ease-sensual) forwards;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes heroContentReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pp-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-xl);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+.pp-hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.25rem !important;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 100px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
 }
 
 .pp-hero-subtitle {
     max-width: 50ch;
-    font-size: clamp(1rem, 3.5vw, 1.2rem) !important;
-    margin-bottom: 2rem !important;
+    font-size: clamp(1rem, 3.5vw, 1.25rem) !important;
+    margin: 0 0 2rem 0 !important;
+    /* Left aligned margin */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    opacity: 0.9;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pp-hero-price-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 0;
 }
 
 .pp-hero-price {
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
 }
 
 .pp-price {
@@ -133,7 +259,8 @@
 /* ─── STORY SECTION ─────────────────────── */
 .pp-story {
     min-height: auto !important;
-    padding: 6rem var(--gutter);
+    padding: 4rem var(--gutter);
+    /* Reduced from 6rem */
 }
 
 .pp-story-inner {
@@ -161,7 +288,8 @@
 /* ─── FEATURES LIST ─────────────────────── */
 .pp-features {
     min-height: auto !important;
-    padding: 4rem var(--gutter);
+    padding: 2rem var(--gutter);
+    /* Reduced from 4rem */
 }
 
 .pp-features-inner {
@@ -204,7 +332,8 @@
 /* ─── GALLERY ───────────────────────────── */
 .pp-gallery {
     min-height: auto !important;
-    padding: 4rem var(--gutter);
+    padding: 3rem var(--gutter);
+    /* Reduced from 4rem */
 }
 
 .pp-gallery-grid {
@@ -226,6 +355,12 @@
 .pp-gallery-item:hover {
     transform: scale(1.03);
     z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* New Magnetic Scroll Effect handled via JS, but base style here */
+.is-magnetic {
+    transition: transform 0.1s linear;
 }
 
 .pp-gallery-item img {
@@ -243,7 +378,8 @@
 /* ─── DETAILS ───────────────────────────── */
 .pp-details {
     min-height: auto !important;
-    padding: 5rem var(--gutter);
+    padding: 3rem var(--gutter);
+    /* Reduced from 5rem */
 }
 
 .pp-details-inner {
@@ -298,17 +434,19 @@
 
 .pp-audience-text {
     font-family: var(--font-serif);
-    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 400;
     font-style: italic;
     line-height: 1.5;
+    opacity: 0.9;
 }
 
 
 /* ─── FINAL CTA ─────────────────────────── */
 .pp-final-cta {
     min-height: auto !important;
-    padding: 6rem var(--gutter);
+    padding: 4rem var(--gutter);
+    /* Reduced from 6rem */
     text-align: center;
 }
 
@@ -341,18 +479,31 @@
 /* ─── BACK LINK ─────────────────────────── */
 .pp-back {
     text-align: center;
-    padding: 2rem var(--gutter) 4rem;
+    padding: 2rem var(--gutter) 6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
 }
 
 .pp-back-link {
     font-size: 0.85rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s var(--ease-sensual);
 }
 
 .pp-back-link:hover {
     color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
 }
 
 
@@ -361,12 +512,33 @@
    ═══════════════════════════════════════ */
 @media (max-width: 767px) {
     .pp-hero {
-        min-height: 75vh;
-        padding-bottom: 3rem;
+        min-height: 85vh;
+        /* Enough room for stacked content */
+        padding-top: 5rem;
+        padding-bottom: 6rem;
+        /* Space for bottom nav */
+    }
+
+    .pp-hero-visual {
+        max-width: 280px;
+        height: 35vh;
     }
 
     .pp-hero-title {
-        font-size: clamp(2rem, 9vw, 3.5rem) !important;
+        font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .pp-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .pp-hero-price-row {
+        flex-direction: row;
+        /* Keep inline on mobile */
+        gap: 1rem;
+        justify-content: flex-start;
     }
 
     .pp-gallery-grid {
@@ -397,4 +569,32 @@
         padding: 0.8rem 1rem;
         font-size: 0.9rem;
     }
+}
+
+/* ─── LIGHTBOX (JS Generated) ───────────── */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition: background 0.5s var(--ease-sensual), backdrop-filter 0.5s var(--ease-sensual);
+    pointer-events: none;
+    /* Initially allow clicks through */
+}
+
+.lightbox-overlay.is-open {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    pointer-events: auto;
+    cursor: zoom-out;
+}
+
+.lightbox-img {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.5s;
+}
+
+.is-open .lightbox-img {
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }

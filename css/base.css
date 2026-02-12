@@ -122,11 +122,13 @@ body::before {
    ═══════════════════════════════════════ */
 .scene {
     position: relative;
-    min-height: 100vh;
+    min-height: auto;
+    /* Changed from 100vh */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem var(--gutter);
+    padding: 4rem var(--gutter);
+    /* Reduced from 6rem */
     overflow: hidden;
 }
 
@@ -411,7 +413,8 @@ body::before {
    ═══════════════════════════════════════ */
 @media (max-width: 768px) {
     .scene {
-        padding: 4rem 1.25rem;
+        padding: 3rem 1.25rem;
+        /* Reduced from 4rem */
     }
 
     .header {
