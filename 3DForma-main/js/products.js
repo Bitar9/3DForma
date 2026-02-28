@@ -363,7 +363,7 @@ window.FORM3D_PRODUCTS = [
         priceNote: "Custom names, ages, and themes",
         oldPrice: "199 SEK",
 
-        tallyLink: "https://tally.so/r/rjPzVM", // Update this with your actual cake form link
+        tallyLink: "https://tally.so/r/D4VJbq", // Update this with your actual cake form link
 
         // Ensure these file paths are EXACTLY correct in your folders
         heroImage: "CelebarationEss/caketopper.png",
