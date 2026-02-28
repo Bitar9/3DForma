@@ -349,8 +349,8 @@ window.FORM3D_PRODUCTS = [
       Cake Topper
       ───────────────────────────────────────────── */
     {
-        id: "Cake-topper", // Changed to match actual filename
-        slug: "Cake-topper",
+        id: "cake-topper", // Changed to match actual filename
+        slug: "cake-topper",
         active: true,
         order: 2, // Moved up to 2 so it shows right after the Mini-Me
 
