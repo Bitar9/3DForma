@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description"
+    content="Custom 3D printed gifts and accessories, crafted locally in Sweden. Couple sculptures, figurines, key tags — personalized and ready in 3–5 days.">
+  <meta name="theme-color" content="#080808">
+  <title>3D Forma — Custom 3D Printed Creations, Made Locally</title>
+  <meta property="og:title" content="3D Forma — Custom 3D Printed Creations">
+  <meta property="og:description"
+    content="Personalized 3D printed gifts. Couple sculptures, figurines, key tags — crafted locally with care.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- FIXED: Use relative paths without leading slash for GitHub Pages compatibility -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+
+<body class="is-loading">
+  <header class="header" id="site-header">
+    <a href="./index.html" class="logo" data-i18n="nav.logo">3D Forma</a>
+    <nav class="nav-menu" aria-label="Main navigation">
+      <a href="./index.html" class="nav-link active">Experience</a>
+      <a href="./catalog.html" class="nav-link">Shop</a>
+    </nav>
+    <nav class="lang-switcher" aria-label="Language selector">
+      <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="sv" aria-pressed="false">SV</button>
+      <button class="lang-btn" data-lang="ar" aria-pressed="false">AR</button>
+    </nav>
+  </header>
+  <main>
+    <section class="scene scene-genesis" id="genesis">
+      <div class="hero-bg-visual">
+        <!-- FIXED: Ensure case matches your actual file name exactly -->
+        <img src="./introo.png" alt="" id="parallax-hero-img">
+        <div class="hero-bg-overlay"></div>
+      </div>
+      <div class="scene-inner">
+        <span class="hero-label" data-i18n="home.hero.label">Custom 3D Printing &mdash; Made in Sweden</span>
+        <h1 class="moment-title hero-title" data-i18n="experience.genesis.title">Turn love into something you can hold
+        </h1>
+        <p class="moment-subtitle hero-subtitle" data-i18n="experience.genesis.subtitle">
+          Sculptures, figurines &amp; custom gifts — personalized for the people who matter most. Crafted locally, ready
+          in 3&ndash;5 days.
+        </p>
+        <div class="hero-stats-container" id="dynamic-hero-stats"></div>
+        <div class="hero-cta-group">
+          <a href="#dynamic-products" class="btn-primary" data-i18n="home.hero.cta.primary">See All Products</a>
+          <a href="./catalog.html" class="btn-secondary">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="scroll-indicator" data-i18n="experience.scroll">Scroll to explore</div>
+    </section>
+    <div class="promo-strip" aria-hidden="true">
+      <div class="promo-strip-track">
+        <span>Couple Sculptures</span><span class="strip-dot">&bull;</span>
+        <span>3D Mini-Me Figures</span><span class="strip-dot">&bull;</span>
+        <span>Custom Key Tags</span><span class="strip-dot">&bull;</span>
+        <span>Anniversary Gifts</span><span class="strip-dot">&bull;</span>
+        <span>Birthday Presents</span><span class="strip-dot">&bull;</span>
+        <span>Graduation Gifts</span><span class="strip-dot">&bull;</span>
+        <span>Couple Sculptures</span><span class="strip-dot">&bull;</span>
+        <span>3D Mini-Me Figures</span><span class="strip-dot">&bull;</span>
+        <span>Custom Key Tags</span><span class="strip-dot">&bull;</span>
+        <span>Anniversary Gifts</span><span class="strip-dot">&bull;</span>
+        <span>Birthday Presents</span><span class="strip-dot">&bull;</span>
+        <span>Graduation Gifts</span><span class="strip-dot">&bull;</span>
+      </div>
+    </div>
+    <div id="dynamic-products"></div>
+    <section class="scene scene-how" id="how-it-works">
+      <div class="scene-inner" id="dynamic-how"></div>
+    </section>
+    <section class="scene scene-reviews" id="reviews">
+      <div class="scene-inner" id="dynamic-reviews"></div>
+    </section>
+    <section class="scene scene-trust" id="why-us">
+      <div class="scene-inner" id="dynamic-trust"></div>
+    </section>
+    <section class="scene scene-guarantee" id="guarantee">
+      <div class="scene-inner" id="dynamic-guarantee"></div>
+    </section>
+    <footer class="scene scene-footer-dynamic" id="contact">
+      <div class="scene-inner" id="dynamic-footer"></div>
+    </footer>
+  </main>
+  <nav class="mobile-nav">
+    <a href="./index.html" class="mobile-nav-link active">
+      <span class="mobile-nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="./catalog.html" class="mobile-nav-link">
+      <span class="mobile-nav-icon">🛒</span>
+      <span>Shop</span>
+    </a>
+    <a href="#contact" class="mobile-nav-link">
+      <span class="mobile-nav-icon">💬</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+  <!-- FIXED: Use relative paths -->
+  <script src="./js/products.js"></script>
+  <script src="./js/renderer.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

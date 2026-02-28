@@ -1,0 +1,1104 @@
+/* ═══════════════════════════════════════════════════════════
+   FORM3D — PRODUCT PAGE (Complete Premium Redesign)
+   Layout: Immersive hero → Gallery → Sticky sidebar buy panel
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ─── HERO ──────────────────────────────── */
+.pp-hero {
+    /* 100vh: Pure cinematic immersion */
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 var(--gutter) 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    /* Transparent background allows the base mesh-gradient + orbs to show through! */
+    background-color: transparent;
+}
+
+
+
+/* ── Hero background VIDEO element ──
+   Added by renderer when heroVideo is set.
+   Works exactly like a background-image: covers the hero,
+   sits behind everything, muted + autoplay for performance. */
+.pp-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Full object visibility */
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+    /* High-contrast retina pop */
+    filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+}
+
+
+
+/* Lighter gradient — only darkens the BOTTOM where text lives.
+   The top 50% stays clean so the product/video shows clearly. */
+.pp-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Ultra-minimal shadow only at the very bottom edge */
+    background: linear-gradient(to bottom, transparent 90%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+
+/* Subtle animated glow from product theme colour */
+.pp-hero::after {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 5%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, var(--hero-glow, rgba(255, 255, 255, 0.04)) 0%, transparent 70%);
+    z-index: 0;
+    filter: blur(60px);
+    animation: heroGlowPulse 5s ease-in-out infinite alternate;
+    /* Lighter, less distracting */
+    pointer-events: none;
+}
+
+@keyframes heroGlowPulse {
+    from {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: scale(1.2);
+    }
+}
+
+.pp-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    /* Keep the center clear for the 360 object */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+/* Floating Corner 'Island' for text — sits in the bottom-left,
+   super high-end glass effect that doesn't block the center object. */
+.pp-hero-text {
+    display: flex;
+    flex-direction: column;
+    /* The Crystal Dock — Creative, premium, and intentional */
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 32px;
+    padding: 2.25rem 2.5rem;
+    max-width: 460px;
+    margin-bottom: 0.5rem;
+    /* Slight lift off the floor */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--ease-sensual);
+}
+
+.pp-hero-text:hover {
+    transform: translateY(-5px);
+    background: rgba(15, 15, 15, 0.55);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8);
+}
+
+/* Suble edge-glow inside the crystal dock */
+.pp-hero-text::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 40%, rgba(255, 255, 255, 0.05));
+    border-radius: inherit;
+}
+
+
+
+
+
+
+
+.pp-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-bottom: 1rem;
+    /* Tighter gap */
+    letter-spacing: 0.03em;
+    width: fit-content;
+}
+
+
+.pp-hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: 0.75rem !important;
+    max-width: 14ch;
+    /* Cut-out shadow for readability over high-color videos */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.pp-hero-subtitle {
+    max-width: 40ch;
+    font-size: clamp(0.9rem, 2vw, 1.05rem) !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.5 !important;
+    opacity: 0.9;
+    /* More solid */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* Hero CTA cluster */
+.pp-hero-ctas {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pp-hero-cta {
+    font-size: 0.9rem !important;
+    padding: 1rem 2.2rem !important;
+    border-radius: 100px !important;
+}
+
+.pp-hero-cta-secondary {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.pp-hero-cta-secondary:hover {
+    color: white;
+}
+
+.pp-price-note {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.02em;
+}
+
+/* Floating price crystal (desktop right side) */
+.pp-hero-price-card {
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 32px;
+    padding: 2.5rem 2rem;
+    min-width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+    transition: all 0.5s var(--ease-sensual);
+}
+
+.pp-hero-price-card:hover {
+    transform: translateY(-5px);
+    background: rgba(15, 15, 15, 0.55);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+.pp-price-card-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+}
+
+.pp-price {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.pp-old-price {
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+    margin-top: -0.5rem;
+}
+
+.pp-price-card-btn {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    background: white;
+    color: #080808;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.pp-price-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.pp-price-card-note {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1.5;
+}
+
+
+/* ─── TRUST STRIP ───────────────────────── */
+.pp-trust-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.75rem var(--gutter);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    min-height: auto !important;
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.pp-trust-item {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    letter-spacing: 0.01em;
+}
+
+/* ─── MAIN CONTENT LAYOUT ───────────────── */
+/* 2-col sticky sidebar on desktop, stacked on mobile */
+.pp-content-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem var(--gutter);
+    align-items: start;
+}
+
+.pp-main-col {
+    min-width: 0;
+    /* Prevents grid blowout */
+}
+
+
+.pp-sidebar-col {
+    position: sticky;
+    top: 6rem;
+    padding-left: 4rem;
+}
+
+/* Sidebar buy card */
+.pp-sidebar-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pp-sidebar-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.pp-sidebar-price {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.pp-sidebar-note {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+.pp-sidebar-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.pp-sidebar-feature {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pp-sidebar-feature::before {
+    content: "✓";
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--feat-check-color, #34d399);
+    flex-shrink: 0;
+}
+
+.pp-sidebar-cta {
+    display: block;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: white;
+    color: #080808;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.pp-sidebar-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+}
+
+.pp-sidebar-social-proof {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ─── STORY SECTION ─────────────────────── */
+.pp-story {
+    min-height: auto !important;
+    padding: 0 0 5rem;
+}
+
+.pp-story-inner {
+    max-width: 620px;
+}
+
+.pp-story-eyebrow {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.pp-story-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.pp-story-text {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.85;
+}
+
+
+/* ─── FEATURES LIST ─────────────────────── */
+.pp-features {
+    min-height: auto !important;
+    padding: 0 0 5rem;
+}
+
+.pp-features-inner {
+    max-width: 620px;
+}
+
+.pp-feature-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.pp-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: border-color 0.3s, transform 0.3s;
+    line-height: 1.4;
+}
+
+.pp-feature-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.pp-feature-check {
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+
+/* ─── GALLERY ───────────────────────────── */
+.pp-gallery {
+    min-height: auto !important;
+    padding: 0 0 5rem;
+}
+
+.pp-gallery-heading {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.pp-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 620px;
+}
+
+/* First image spans 2 cols for visual hierarchy */
+.pp-gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+}
+
+.pp-gallery-item {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.4s var(--ease-sensual);
+}
+
+.pp-gallery-item:hover {
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+.pp-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-sensual);
+}
+
+.pp-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* ─── LIGHTBOX ──────────────────────────── */
+.pp-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.pp-lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pp-lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.4s var(--ease-sensual);
+}
+
+.pp-lightbox.is-open .pp-lightbox-img {
+    transform: scale(1);
+}
+
+.pp-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.pp-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pp-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.pp-lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.pp-lightbox-prev {
+    left: 1.5rem;
+}
+
+.pp-lightbox-next {
+    right: 1.5rem;
+}
+
+
+/* ─── DETAILS ───────────────────────────── */
+.pp-details {
+    min-height: auto !important;
+    padding: 0 0 4rem;
+}
+
+.pp-details-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 620px;
+}
+
+.pp-detail-block {
+    padding: 1.75rem;
+    border-radius: 18px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.pp-detail-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.pp-detail-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+
+/* ─── AUDIENCE / WHO IT'S FOR ───────────── */
+.pp-audience {
+    min-height: auto !important;
+    padding: 0 0 5rem;
+}
+
+.pp-audience-inner {
+    max-width: 620px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pp-audience-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    display: block;
+}
+
+.pp-audience-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 3.5vw, 1.45rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+
+/* ─── VIDEO SECTION ─────────────────────── */
+.pp-video {
+    min-height: auto !important;
+    padding: 0 0 5rem;
+}
+
+.pp-video-heading {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.pp-video-embed,
+.pp-video-local {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0a0a0a;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    max-width: 620px;
+}
+
+.pp-video-embed iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: none;
+}
+
+.pp-video-el {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ─── FINAL CTA — Full width accent band ─ */
+.pp-final-cta {
+    min-height: auto !important;
+    padding: 6rem var(--gutter);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pp-final-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pp-final-eyebrow {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.pp-final-price {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.pp-final-price-note {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    margin-bottom: 2.5rem;
+}
+
+.pp-final-btn {
+    font-size: 1rem !important;
+    padding: 1.2rem 3.5rem !important;
+    border-radius: 100px !important;
+    display: inline-flex;
+    letter-spacing: 0.06em;
+}
+
+.pp-final-note {
+    margin-top: 1.25rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.pp-final-note a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ─── STICKY BUY BAR (mobile) ───────────── */
+/* (Uses base.css .sticky-buy-bar already) */
+
+
+/* ─── BACK LINK ─────────────────────────── */
+.pp-back {
+    text-align: center;
+    padding: 2rem var(--gutter) 5rem;
+}
+
+.pp-back-link {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.3s, gap 0.3s;
+}
+
+.pp-back-link:hover {
+    color: var(--text-primary);
+    gap: 0.7rem;
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════ */
+/* ─── HERO MOBILE FIXES ─────────────────── */
+@media (max-width: 900px) {
+    .pp-hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 4rem 1rem 2rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: var(--hero-bg, #0a0a0b);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .pp-hero::before {
+        /* Smooth cinematic gradient from transparent to solid black at the bottom */
+        background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.95) 100%);
+    }
+
+    .pp-hero-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .pp-hero-text {
+        max-width: 100%;
+        padding: 1rem;
+        margin-bottom: 0;
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .pp-hero-title {
+        font-size: clamp(2.2rem, 10vw, 3rem) !important;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .pp-hero-video {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .pp-hero-price-card {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .pp-hero {
+        padding-top: 4rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .pp-hero-text {
+        padding: 0.5rem;
+    }
+
+    .pp-hero-title {
+        font-size: clamp(2rem, 10vw, 2.5rem) !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .pp-hero-subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .pp-hero-ctas {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .pp-hero-cta,
+    .pp-hero-cta-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem 1.5rem !important;
+    }
+}
+
+/* ─── GALLERY MOBILE FIXES ──────────────── */
+@media (max-width: 768px) {
+    .pp-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .pp-gallery-item:first-child {
+        grid-column: span 2;
+        aspect-ratio: 16 / 10;
+    }
+
+    .pp-gallery-item {
+        aspect-ratio: 1 / 1;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pp-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .pp-gallery-heading {
+        font-size: 0.65rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* ─── SIDEBAR/STICKY BAR MOBILE FIXES ───── */
+@media (max-width: 900px) {
+    .pp-sidebar-col {
+        display: none !important;
+    }
+
+    .sticky-buy-bar {
+        width: calc(100% - 2rem);
+        max-width: none;
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+        padding: 0.75rem 1rem;
+    }
+
+    .sticky-buy-bar.is-visible {
+        bottom: 1rem;
+    }
+
+    .btn-buy-sticky {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ─── CONTENT LAYOUT MOBILE FIXES ───────── */
+@media (max-width: 900px) {
+    .pp-content-layout {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .pp-main-col {
+        min-width: 0;
+    }
+
+    .pp-story,
+    .pp-features,
+    .pp-details,
+    .pp-audience,
+    .pp-gallery {
+        padding-bottom: 3rem;
+    }
+
+    .pp-story-inner,
+    .pp-features-inner,
+    .pp-details-inner {
+        max-width: 100%;
+    }
+
+    .pp-feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pp-details-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── FINAL CTA MOBILE FIXES ────────────── */
+@media (max-width: 768px) {
+    .pp-final-cta {
+        padding: 4rem 1rem;
+    }
+
+    .pp-final-price {
+        font-size: clamp(2rem, 12vw, 3.5rem) !important;
+    }
+
+    .pp-final-btn {
+        width: 100%;
+        padding: 1rem 2rem !important;
+    }
+}
+
+/* ─── LIGHTBOX MOBILE FIXES ─────────────── */
+@media (max-width: 768px) {
+    .pp-lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .pp-lightbox-prev {
+        left: 0.5rem;
+    }
+
+    .pp-lightbox-next {
+        right: 0.5rem;
+    }
+
+    .pp-lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ─── TRUST STRIP MOBILE FIXES ──────────── */
+@media (max-width: 768px) {
+    .pp-trust-strip {
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .pp-trust-item {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pp-trust-strip {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .pp-trust-item {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* ─── VIDEO MOBILE FIXES ────────────────── */
+@media (max-width: 768px) {
+
+    .pp-video-embed,
+    .pp-video-local {
+        border-radius: 12px;
+    }
+
+    .pp-video-embed.is-tiktok {
+        max-width: 100%;
+    }
+}
