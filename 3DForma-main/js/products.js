@@ -585,7 +585,7 @@ window.FORM3D_PRODUCTS = [
         priceNote: "Kontakta oss för beställning",
         oldPrice: "",
 
-        tallyLink: "",
+        tallyLink: "https://tally.so/r/Y5OO7W",
 
         heroImage: "Studentavla/fira1.jpeg",
         thumbnail: "Studentavla/fira1.jpeg",
