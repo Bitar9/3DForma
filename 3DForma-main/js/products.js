@@ -174,7 +174,7 @@ window.FORM3D_PRODUCTS = [
         id: "Figure3D",
         slug: "Figure3D",
         active: true,
-        order: 1,
+        order: 5,
 
         name: "3D Mini-Me",
         tagline: "Your likeness, immortalized",
@@ -322,7 +322,7 @@ window.FORM3D_PRODUCTS = [
 
         audience: "Perfect for anniversaries, Valentine's Day, weddings, or to say 'I love you' without words.",
 
-        theme: "ember",
+        theme: "royal",
 
         layout: "left",
 
@@ -349,8 +349,8 @@ window.FORM3D_PRODUCTS = [
       Cake Topper
       ───────────────────────────────────────────── */
     {
-        id: "cake-topper", // Changed to match actual filename
-        slug: "cake-topper",
+        id: "Cake-topper", // Changed to match actual filename
+        slug: "Cake-topper",
         active: true,
         order: 2, // Moved up to 2 so it shows right after the Mini-Me
 
@@ -363,7 +363,7 @@ window.FORM3D_PRODUCTS = [
         priceNote: "Custom names, ages, and themes",
         oldPrice: "199 SEK",
 
-        tallyLink: "https://tally.so/r/D4VJbq", // Update this with your actual cake form link
+        tallyLink: "https://tally.so/r/rjPzVM", // Update this with your actual cake form link
 
         // Ensure these file paths are EXACTLY correct in your folders
         heroImage: "CelebarationEss/caketopper.png",
@@ -564,6 +564,72 @@ window.FORM3D_PRODUCTS = [
             title: "experience.identity.title",
             subtitle: "experience.identity.subtitle",
             cta: "keytag.cta"
+        }
+    },
+
+    /* ─────────────────────────────────────────────
+       5.  STUDENTTAVLA
+       ───────────────────────────────────────────── */
+    {
+        id: "studenttavla",
+        slug: "studenttavla",
+        active: true,
+        order: 1,
+
+        name: "Exklusiv Studenttavla i 3D",
+        tagline: "Ett minne för livet",
+        subtitle: "Fira din studentdag med ett unikt konstverk som ingen annan har. Vi skapar en personlig tavla där din bild transformeras till en figur som sticker ut 5 cm från ytan för en imponerande 3D-effekt.",
+        badge: "🎓 Nyhet",
+
+        price: "999 SEK",
+        priceNote: "Kontakta oss för beställning",
+        oldPrice: "",
+
+        tallyLink: "",
+
+        heroImage: "Studentavla/fira1.jpeg",
+        thumbnail: "Studentavla/fira1.jpeg",
+        heroVideo: "",
+        video: "",
+        gallery: [
+            "Studentavla/fira1.jpeg",
+            "Studentavla/fira123.jpeg",
+            "Studentavla/firat.jpeg"
+        ],
+
+        features: [
+            "Din nuvarande bild i 3D",
+            "En bild på dig som barn",
+            "Ditt namn och namnet på din skola",
+            "Professionell produkt med högsta kvalitet"
+        ],
+
+        story: {
+            headline: "Exklusiv design anpassas helt efter dig",
+            text: "Designen anpassas helt efter dig. Allt vi behöver är din nuvarande bild, en bild på dig som barn, samt ditt namn och namnet på din skola. Vi sköter resten och levererar en professionell produkt med högsta kvalitet. Var först med denna exklusiva design."
+        },
+
+        details: [
+            {
+                title: "Så här fungerar det",
+                text: "Allt vi behöver är: Din nuvarande bild, en bild på dig som barn, samt ditt namn och namnet på din skola."
+            },
+            {
+                title: "Beställning",
+                text: "Kontakta oss för beställning. Vi sköter resten och levererar en professionell produkt med högsta kvalitet."
+            }
+        ],
+
+        audience: "Perfekt för studenten som vill ha ett unikt minne av sin stora dag.",
+
+        theme: "royal",
+
+        layout: "right",
+
+        psychology: {
+            urgency: "Var först med denna exklusiva design",
+            social: "Ett unikt konstverk som ingen annan har",
+            trust: "Högsta kvalitet och professionellt hantverk"
         }
     }
 
